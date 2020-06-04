@@ -26,7 +26,10 @@ class Keyboard(GridLayout):
         self.tela.text += info
 
     def apagar(self):
-        self.tela.text = self.tela.text[:-1]
+        if self.tela.text[-1] == " ":
+            self.tela.text = self.tela.text[:-3]
+        else:
+            self.tela.text = self.tela.text[:-1]
 
     def clean(self):
         self.tela.text = ""
@@ -43,11 +46,11 @@ class Keyboard(GridLayout):
 
     def soma(self):
         if len(self.tela.text) > 0:
-            if self.tela.text[-1] == '-':
-                self.tela.text = self.tela.text[:-1]
+            if self.tela.text[-2] == '-':
+                self.tela.text = self.tela.text[:-3]
                 self.tela.text += ' + '
-            elif self.tela.text[-1] == '+':
-                self.tela.text = self.tela.text[:-1]
+            elif self.tela.text[-2] == '+':
+                self.tela.text = self.tela.text[:-3]
                 self.tela.text += ' - '
             else:
                 self.tela.text += ' + '
@@ -62,18 +65,24 @@ class Keyboard(GridLayout):
             self.tela.text += ','
 
     def validate(self):
+        exp_a = ''
+        exp_b = ''
+        exp_c = ''
+
         exp_a = re.compile('([-]?\d+)(?=[a-zA-Z]\²)')
+
+        if exp_a == '':
+            self.tela.text = "Inválido"
+        else:
+            a = (exp_a.match(self.tela.text).group())
+
         exp_b = re.compile('-?\d+(?![a-zA-Z]\^)(?=[a-zA-Z])')
         exp_c = re.compile('-?\d+')
 
-        a = (exp_a.match(self.tela.text).group())
         b = (exp_b.match(self.tela.text).group())
         c = (exp_c.match(self.tela.text).group())
 
-        if a != 0:
-            self.tela.text = "Válido   a = " + a + ", b = " + b + " e c = " + c
-        else:
-            self.tela.text = "Inválido"
+        self.tela.text = "Válido   a = " + a + ", b = " + b + " e c = " + c
 
 class MathApp(App):
 
