@@ -1,22 +1,21 @@
 import kivy
 from kivy.app import App
-from kivy.graphics.context_instructions import Color
-from kivy.graphics.vertex_instructions import Line, Rectangle
 from kivy.lang import Builder
 from kivy.properties import StringProperty, ObjectProperty
-from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.actionbar import ActionGroup
-from kivy.uix.textinput import TextInput
-from kivy.uix.button import Button
+
 import re
 
 kivy.require('1.11.1')
 
+
 class Keyboard(GridLayout):
     tela = ObjectProperty()
 
+    def __init__(self, **kwargs):
+        super(Keyboard, self).__init__(**kwargs)
+        self.cols
 
     def teclado(self, info):
         self.tela.text += info
@@ -61,10 +60,6 @@ class Keyboard(GridLayout):
             self.tela.text += ','
 
     def validate(self):
-        exp_a = ''
-        exp_b = ''
-        exp_c = ''
-
 
         exp_a = re.compile('([-]?\d+)(?=[a-zA-Z]\²)')
 
@@ -76,6 +71,7 @@ class Keyboard(GridLayout):
         exp_b = re.compile('-?\d+(?![a-zA-Z]\^)(?=[a-zA-Z])')
         exp_c = re.compile('-?\d+')
 
+        a = (exp_a.match(self.tela.text).group())
         b = (exp_b.match(self.tela.text).group())
         c = (exp_c.match(self.tela.text).group())
 
@@ -89,12 +85,10 @@ class TopBar(BoxLayout):
 
     def __init__(self, **kwargs):
         super(TopBar, self).__init__(**kwargs)
-        super(Keyboard, self).__init__(**kwargs)
         self.cols = 4
 
     def get_image(self):
         return "/home/allanbraun/PycharmProjects/mathapp/assets/images/baseline_menu_white_48.png"
-
 
 
 class MathApp(App):
