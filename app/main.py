@@ -1,33 +1,29 @@
 import kivy
 from kivy.app import App
+from kivy.properties import ObjectProperty
 from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.actionbar import ActionGroup
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 
 kivy.require('1.11.1')
 
 
-class Grid(GridLayout):
+class TopBar(BoxLayout):
+
     def __init__(self, **kwargs):
-        super(Grid, self).__init__(**kwargs)
-        self.cols = 2
+        super(TopBar, self).__init__(**kwargs)
 
-        # criacao de widgets
-        self.label_principal = Label(text="Batata")
-        self.name = TextInput(multiline=False)  # instancia um widget que só pode uma linha
-        self.button = Button()
-
-        # adicionando no layout
-        self.add_widget(self.label_principal)
-        self.add_widget(self.name)
-        self.add_widget(self.button)
+    def get_image(self):
+        return "/home/allanbraun/PycharmProjects/mathapp/assets/images/baseline_menu_white_48.png"
 
 
 class MathApp(App):
 
     def build(self):
-        return Grid()
+        return TopBar()
 
 
 MathApp().run()
