@@ -1,0 +1,22 @@
+#:import utils kivy.utils
+
+<TopBar@GridLayout>:
+    orientation: 'horizontal'
+    ActionBar:
+        background_normal: ''
+        background_down: ''
+        background_image: '/home/allanbraun/PycharmProjects/mathapp/assets/images/branco.png'
+        background_color: utils.get_color_from_hex('#083A0F')
+        pos_hint: {'top':1}
+        ActionView:
+            use_separator: True
+            ActionPrevious:
+                title: 'MathApp'
+                app_icon: ''
+                with_previous: False
+            ActionOverflow:
+                overflow_image: root.get_image()
+                ActionButton:
+                    text: 'Histórico'
+                ActionButton:
+                    text: 'Grafico'
