@@ -10,17 +10,6 @@ from app import keyboard, topbar  # precisa
 
 kivy.require('1.11.1')
 
-
-class TopBar(BoxLayout):
-
-    def __init__(self, **kwargs):
-        super(TopBar, self).__init__(**kwargs)
-        self.cols = 4
-
-    def get_image(self):
-        return "/home/allanbraun/PycharmProjects/mathapp/assets/images/baseline_menu_white_48.png"
-
-
 class MainLayout(GridLayout):
     pass
 
