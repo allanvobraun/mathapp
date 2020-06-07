@@ -5,7 +5,7 @@ from kivy.properties import StringProperty, ObjectProperty
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.boxlayout import BoxLayout
 
-from app import keyboard, topbar  # precisa
+from app import keyboard, topbar, tela  # precisa
 
 
 kivy.require('1.11.1')
