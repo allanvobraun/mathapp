@@ -9,16 +9,16 @@ import re
 
 kivy.require('1.11.1')
 
+
 class Tela(GridLayout):
-    tela = ObjectProperty()
+    display = ObjectProperty()
 
     def __init__(self, **kwargs):
         super(Tela, self).__init__(**kwargs)
         self.cols = 1
 
-    def setTextTela(self, txt):
+    def set_text(self, txt):
         self.tela.text = txt
-        #print(self.tela.text)
 
-    def getCor(self):
+    def getCor(self):  # TODO: mudar para snake case
         return kivy.utils.get_color_from_hex('#0A5B15')
