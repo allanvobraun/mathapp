@@ -1,28 +1,27 @@
 import kivy
-from kivy.lang import Builder
-from kivy.properties import StringProperty, ObjectProperty
-from kivy.uix.label import Label
+from kivy.app import App
+from kivy.clock import Clock
 from kivy.uix.gridlayout import GridLayout
-from kivy.uix.textinput import TextInput
-from kivy.uix.button import Button
 import re
-from app import tela
-from app.tela import Tela
 
 kivy.require('1.11.1')
+
 
 class Keyboard(GridLayout):
 
     def __init__(self, **kwargs):
         super(Keyboard, self).__init__(**kwargs)
         self.cols = 4
-        self.telinha = Tela()
+        self.master = App.get_running_app()  # Widget pai de todos
 
     def getCor(self):
         return kivy.utils.get_color_from_hex('#0A5B15')
 
-    def teclado(self, info):
-        self.telinha.setTextTela(info)
+    def get_teclado(self):
+        return self.master.root.get_child('Tela')
+
+    def teclado(self, text):
+        self.get_teclado().display.text += text
 
     def apagar(self):
         if self.tela.text[-1] == " ":

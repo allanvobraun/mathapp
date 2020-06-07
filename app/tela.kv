@@ -1,22 +1,7 @@
 <Tela@GridLayout>:
-
-    tela: tela
-
+    display: display
     Label:
-        text: 'Gabriel'
-        id: tela
+        id: display
+        text: ''
         font_name: 'assets/fonts/CENTURY.ttf'
         font_size: 24
-
-    GridLayout
-                cols: 1
-                size_hint: 1, None
-                height: max(self.minimum_height, scrlv.height)
-
-                canvas:
-                    Color:
-                        rgba: 150/255, 150/255, 150/255, 1
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-
