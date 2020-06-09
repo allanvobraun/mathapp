@@ -1,3 +1,4 @@
+#-*- encoding: utf-8 -*-
 import kivy
 from kivy.lang import Builder
 from kivy.properties import StringProperty, ObjectProperty
