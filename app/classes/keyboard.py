@@ -1,4 +1,4 @@
-#-*- encoding: utf-8 -*-
+# -*- encoding: utf-8 -*-
 import kivy
 from kivy.app import App
 from kivy.clock import Clock
@@ -23,6 +23,7 @@ class Keyboard(GridLayout):
 
     def teclado(self, text):
         self.get_teclado().display.text += text
+        print(self.get_teclado().display.text)
 
     def apagar(self):
         if self.tela.text[-1] == " ":

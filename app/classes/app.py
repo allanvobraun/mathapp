@@ -14,14 +14,24 @@ class MainLayout(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        #  comprehention de dicionarios com os widgets filhos
-        #  { "nome da classe": objeto"}
-        self.slaves = {child.__class__.__name__: child for child in self.children}
+        self.slaves = self.generate_dict_children(self)
+        self.set_children()  # TODO retirar wigets padroes
+        print(self.slaves)
+
+    # aliciona ao dicionario os "netos" do widget
+    def set_children(self):
+        for children in self.children:
+            if hasattr(children, 'children'):  # se o filho tiver filhos
+                self.slaves.update(self.generate_dict_children(children))
+
+    #  comprehention de dicionarios com os widgets filhos
+    #  { "nome da classe": objeto}
+    @staticmethod
+    def generate_dict_children(obj):
+        return {child.__class__.__name__: child for child in obj.children}
 
     def get_child(self, name):
         return self.slaves[name]
-
-    pass
 
 
 class MathApp(App):
