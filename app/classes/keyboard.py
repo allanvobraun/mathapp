@@ -26,43 +26,43 @@ class Keyboard(GridLayout):
         print(self.get_teclado().display.text)
 
     def apagar(self):
-        if self.tela.text[-1] == " ":
-            self.tela.text = self.tela.text[:-3]
+        if self.get_teclado().display.text[-1] == " ":
+            self.get_teclado().display.text = self.get_teclado().display.text[:-3]
         else:
-            self.tela.text = self.tela.text[:-1]
+            self.get_teclado().display.text = self.get_teclado().display.text[:-1]
 
     def clean(self):
-        self.tela.text = ""
+        self.get_teclado().display.text = ""
 
     def incognita(self):
-        if len(self.tela.text) > 0:
-            if self.tela.text[-1] != 'x':
-                self.tela.text += 'x'
+        if len(self.get_teclado().display.text) > 0:
+            if self.get_teclado().display.text[-1] != 'x':
+                self.get_teclado().display.text += 'x'
             else:
-                self.tela.text = self.tela.text[:-1]
-                self.tela.text += 'x²'
+                self.get_teclado().display.text = self.get_teclado().display.text[:-1]
+                self.get_teclado().display.text += 'x²'
         else:
-            self.tela.text += 'x'
+            self.get_teclado().display.text += 'x'
 
     def soma(self):
-        if len(self.tela.text) > 0:
-            if self.tela.text[-2] == '-':
-                self.tela.text = self.tela.text[:-3]
-                self.tela.text += ' + '
-            elif self.tela.text[-2] == '+':
-                self.tela.text = self.tela.text[:-3]
-                self.tela.text += ' - '
+        if len(self.get_teclado().display.text) > 0:
+            if self.get_teclado().display.text[-2] == '-':
+                self.get_teclado().display.text = self.get_teclado().display.text[:-3]
+                self.get_teclado().display.text += ' + '
+            elif self.get_teclado().display.text[-2] == '+':
+                self.get_teclado().display.text = self.get_teclado().display.text[:-3]
+                self.get_teclado().display.text += ' - '
             else:
-                self.tela.text += ' + '
+                self.get_teclado().display.text += ' + '
         else:
-            self.tela.text += ' + '
+            self.get_teclado().display.text += ' + '
 
     def virgula(self):
-        if ',' in self.tela.text.split('+')[-1]:
-            if self.tela.text[-1] == ',':
+        if ',' in self.get_teclado().display.text.split('+')[-1]:
+            if self.get_teclado().display.text[-1] == ',':
                 return
         else:
-            self.tela.text += ','
+            self.get_teclado().display.text += ','
 
     def validate(self):
         exp_a = ''
@@ -72,14 +72,14 @@ class Keyboard(GridLayout):
         exp_a = re.compile('([-]?\d+)(?=[a-zA-Z]\²)')
 
         if exp_a == '':
-            self.tela.text = "Inválido"
+            self.get_teclado().display.text = "Inválido"
         else:
-            a = (exp_a.match(self.tela.text).group())
+            a = (exp_a.match(self.get_teclado().display.text).group())
 
         exp_b = re.compile('-?\d+(?![a-zA-Z]\^)(?=[a-zA-Z])')
         exp_c = re.compile('-?\d+')
 
-        b = (exp_b.match(self.tela.text).group())
-        c = (exp_c.match(self.tela.text).group())
+        b = (exp_b.match(self.get_teclado().display.text).group())
+        c = (exp_c.match(self.get_teclado().display.text).group())
 
-        self.tela.text = "Válido   a = " + a + ", b = " + b + " e c = " + c
+        self.get_teclado().display.text = "Válido   a = " + a + ", b = " + b + " e c = " + c

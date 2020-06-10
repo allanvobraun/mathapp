@@ -1,146 +1,102 @@
 #:import Keyboard app.classes.keyboard
 <Keyboard>:
 
-    Button:
-        font_name: 'assets/fonts/cmunrm.ttf'
-        font_size: 24
+    KbButton:
         text:'1'
-        on_press: root.teclado('1')
         color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
+        on_press: root.teclado(self.text)
 
-    Button:
-        font_name: 'assets/fonts/cmunrm.ttf'
-        font_size: 24
+    KbButton:
         text:'2'
-        on_press: root.teclado('2')
         color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
+        on_press: root.teclado(self.text)
+        
 
-    Button:
-        font_name: 'assets/fonts/cmunrm.ttf'
-        font_size: 24
+    KbButton:
         text:'3'
-        on_press: root.teclado('2')
         color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
+        on_press: root.teclado(self.text)
+        
 
-    Button:
-        font_name: 'assets/fonts/CENTURY.ttf'
-        font_size: 24
+    KbButton:
+        text:'4'
+        color: root.getCor()
+        on_press: root.teclado(self.text)
+        
+
+    KbButton:
+        text:'5'
+        color: root.getCor()
+        on_press: root.teclado(self.text)
+        
+
+    KbButton:
+        text:'6'
+        color: root.getCor()
+        on_press: root.teclado(self.text)
+        
+
+    KbButton:
+        text:'7'
+        color: root.getCor()
+        on_press: root.teclado(self.text)
+        
+
+    KbButton:
+        text:'8'
+        color: root.getCor()
+        on_press: root.teclado(self.text)
+
+    KbButton:
+        text:'9'
+        color: root.getCor()
+        on_press: root.teclado(self.text)
+        
+
+    KbButton:
         text:'x / x²'
         on_press: root.incognita()
-        color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
+        color: root.getCor()       
 
-    Button:
-        font_name: 'assets/fonts/cmunrm.ttf'
-        font_size: 24
-        text:'4'
-        on_press: root.teclado('4')
-        color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
-
-    Button:
-        font_name: 'assets/fonts/cmunrm.ttf'
-        font_size: 24
-        text:'5'
-        on_press: root.teclado('5')
-        color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
-
-    Button:
-        font_name: 'assets/fonts/cmunrm.ttf'
-        font_size: 24
-        text:'6'
-        on_press: root.teclado('6')
-        color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
-
-    Button:
-        font_name: 'assets/fonts/cmunrm.ttf'
-        font_size: 24
+    KbButton:
         text:'<'
         on_press: root.apagar()
-        color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
+        color: root.getCor()    
 
-    Button:
-        font_name: 'assets/fonts/cmunrm.ttf'
-        font_size: 24
-        text:'7'
-        on_press: root.teclado('7')
-        color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
-
-    Button:
-        font_name: 'assets/fonts/cmunrm.ttf'
-        font_size: 24
-        text:'8'
-        on_press: root.teclado('8')
-        color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
-
-    Button:
-        font_name: 'assets/fonts/cmunrm.ttf'
-        font_size: 24
-        text:'9'
-        on_press: root.teclado('9')
-        color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
-
-    Button:
-        font_name: 'assets/fonts/cmunrm.ttf'
-        font_size: 24
+    KbButton:
         text:'C'
         on_press: root.clean()
-        color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
+        color: root.getCor()        
 
-    Button:
-        font_name: 'assets/fonts/cmunrm.ttf'
-        font_size: 24
+    KbButton:
         text:','
         on_press: root.virgula()
-        color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
+        color: root.getCor()        
 
-    Button:
-        font_name: 'assets/fonts/cmunrm.ttf'
-        font_size: 24
+    KbButton:
         text:'0'
         on_press: root.teclado('0')
-        color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
+        color: root.getCor()        
 
-    Button:
-        font_name: 'assets/fonts/cmunrm.ttf'
-        font_size: 24
+    KbButton:
         text:'+ / -'
         on_press: root.soma()
-        color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
+        color: root.getCor()        
 
-    Button:
-        font_name: 'assets/fonts/cmunrm.ttf'
-        font_size: 24
+    KbButton:
         text:'='
         on_press: root.validate()
         color: root.getCor()
-        background_normal: ''
-        background_color: 255,255,255,1
+
+<KbButton@Button>:
+    font_name: 'assets/fonts/cmunrm.ttf'
+    font_size: 24
+    background_normal: ''
+    background_color: 255,255,255,1
+
+
+
+
+
+
+

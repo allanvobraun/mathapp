@@ -16,7 +16,6 @@ class MainLayout(GridLayout):
 
         self.slaves = self.generate_dict_children(self)
         self.set_children()  # TODO retirar wigets padroes
-        print(self.slaves)
 
     # aliciona ao dicionario os "netos" do widget
     def set_children(self):
