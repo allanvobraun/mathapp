@@ -1,0 +1,19 @@
+#:import Keyboard app.classes.solution
+
+<Solution@GridLayout>:
+    cols: 1
+
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+
+        Label:
+            id: passos
+            font_size: 18
+
+            size_hint_y: None
+            height: self.texture_size[1]
+            #text_size: self.width
+            padding: 10, 10
+            text:
+                "Passos para o cálculo do delta(Δ)\n\nΔ = b² -4·a·c\n"

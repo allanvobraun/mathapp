@@ -1,3 +1,4 @@
+#-*- encoding: utf-8 -*-
 from kivy.uix.boxlayout import BoxLayout
 from main import ROOT
 

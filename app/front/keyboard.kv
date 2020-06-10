@@ -1,0 +1,102 @@
+#:import Keyboard app.classes.keyboard
+<Keyboard>:
+
+    KbButton:
+        text:'1'
+        color: root.getCor()
+        on_press: root.teclado(self.text)
+
+    KbButton:
+        text:'2'
+        color: root.getCor()
+        on_press: root.teclado(self.text)
+        
+
+    KbButton:
+        text:'3'
+        color: root.getCor()
+        on_press: root.teclado(self.text)
+        
+
+    KbButton:
+        text:'4'
+        color: root.getCor()
+        on_press: root.teclado(self.text)
+        
+
+    KbButton:
+        text:'5'
+        color: root.getCor()
+        on_press: root.teclado(self.text)
+        
+
+    KbButton:
+        text:'6'
+        color: root.getCor()
+        on_press: root.teclado(self.text)
+        
+
+    KbButton:
+        text:'7'
+        color: root.getCor()
+        on_press: root.teclado(self.text)
+        
+
+    KbButton:
+        text:'8'
+        color: root.getCor()
+        on_press: root.teclado(self.text)
+
+    KbButton:
+        text:'9'
+        color: root.getCor()
+        on_press: root.teclado(self.text)
+        
+
+    KbButton:
+        text:'x / x²'
+        on_press: root.incognita()
+        color: root.getCor()       
+
+    KbButton:
+        text:'<'
+        on_press: root.apagar()
+        color: root.getCor()    
+
+    KbButton:
+        text:'C'
+        on_press: root.clean()
+        color: root.getCor()        
+
+    KbButton:
+        text:','
+        on_press: root.virgula()
+        color: root.getCor()        
+
+    KbButton:
+        text:'0'
+        on_press: root.teclado('0')
+        color: root.getCor()        
+
+    KbButton:
+        text:'+ / -'
+        on_press: root.soma()
+        color: root.getCor()        
+
+    KbButton:
+        text:'='
+        on_press: root.validate()
+        color: root.getCor()
+
+<KbButton@Button>:
+    font_name: 'assets/fonts/cmunrm.ttf'
+    font_size: 24
+    background_normal: ''
+    background_color: 255,255,255,1
+
+
+
+
+
+
+
