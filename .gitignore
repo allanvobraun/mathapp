@@ -2,10 +2,12 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+/bin
+bin/
 # C extensions
 *.so
-
+.buildozer/*
+.buildozer
 # Distribution / packaging
 .Python
 build/
