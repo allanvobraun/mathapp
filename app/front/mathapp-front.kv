@@ -4,9 +4,31 @@
 #:include app/front/tela.kv
 #:include app/front/solution.kv
 
-<MainLayout>:
-    cols: 1
-    TopBar:
-    Tela:
-    Keyboard:
+<ScreenControler>:
+    MainMenu:
+        name: 'menu'
+    MainLayout:
+        name: 'calculadora'
+
+
     #Solution:
+
+<MainMenu@Screen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 200
+        spacing: 50
+        Button:
+            text: 'Calculadora'
+            on_release: app.root.current = 'calculadora'
+        Button:
+            text: 'teste'
+        Button:
+            text: 'teste'
+
+<MainLayout>:
+    GridLayout:
+        cols: 1
+        TopBar:
+        Tela:
+        Keyboard:

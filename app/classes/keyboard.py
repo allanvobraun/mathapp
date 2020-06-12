@@ -19,7 +19,7 @@ class Keyboard(GridLayout):
         return kivy.utils.get_color_from_hex('#0A5B15')
 
     def get_teclado(self):
-        return self.master.root.get_child('Tela')
+        return self.master.root.get_screen('calculadora').get_child('Tela')
 
     def teclado(self, text):
         self.get_teclado().display.text += text
