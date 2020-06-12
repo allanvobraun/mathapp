@@ -16,7 +16,17 @@
         text:'3'
         color: root.getCor()
         on_press: root.teclado(self.text)
-        
+
+
+    Button:
+        font_name: 'assets/fonts/times italic.ttf'
+        font_size: 54
+        background_normal: ''
+        background_color: 255,255,255,1
+        text: u'x / x\u00b2'
+        on_press: root.incognita()
+        color: root.getCor()
+
 
     KbButton:
         text:'4'
@@ -36,6 +46,19 @@
         on_press: root.teclado(self.text)
         
 
+    Button:
+        on_press: root.apagar()
+        color: root.getCor()
+
+        background_normal: ''
+        background_color: 255,255,255,1
+
+        Image:
+            source: 'assets/images/backspace_new.png'
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+
+
     KbButton:
         text:'7'
         color: root.getCor()
@@ -51,20 +74,14 @@
         text:'9'
         color: root.getCor()
         on_press: root.teclado(self.text)
-        
 
-    KbButton:
-        text:'x / x²'
-        on_press: root.incognita()
-        color: root.getCor()       
 
-    KbButton:
-        text:'<'
-        on_press: root.apagar()
-        color: root.getCor()    
-
-    KbButton:
+    Button:
         text:'C'
+        font_name: 'assets/fonts/times new.ttf'
+        font_size: 54
+        background_normal: ''
+        background_color: 255,255,255,1
         on_press: root.clean()
         color: root.getCor()        
 
@@ -78,8 +95,12 @@
         on_press: root.teclado('0')
         color: root.getCor()        
 
-    KbButton:
-        text:'+ / -'
+    Button:
+        font_name: 'assets/fonts/times new.ttf'
+        text: u' + / \u2012'
+        font_size: 54
+        background_normal: ''
+        background_color: 255,255,255,1
         on_press: root.soma()
         color: root.getCor()        
 
@@ -89,8 +110,8 @@
         color: root.getCor()
 
 <KbButton@Button>:
-    font_name: 'assets/fonts/cmunrm.ttf'
-    font_size: 24
+    font_name: 'assets/fonts/CENTURY.ttf'
+    font_size: 54
     background_normal: ''
     background_color: 255,255,255,1
 
