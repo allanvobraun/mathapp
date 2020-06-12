@@ -23,7 +23,6 @@ class Keyboard(GridLayout):
 
     def teclado(self, text):
         self.get_teclado().display.text += text
-        print(self.get_teclado().display.text)
 
     def apagar(self):
         if self.get_teclado().display.text[-1] == " ":
@@ -46,12 +45,12 @@ class Keyboard(GridLayout):
 
     def soma(self):
         if len(self.get_teclado().display.text) > 0:
-            if self.get_teclado().display.text[-2] == '-':
+            if self.get_teclado().display.text[-2] == '‒':
                 self.get_teclado().display.text = self.get_teclado().display.text[:-3]
                 self.get_teclado().display.text += ' + '
             elif self.get_teclado().display.text[-2] == '+':
                 self.get_teclado().display.text = self.get_teclado().display.text[:-3]
-                self.get_teclado().display.text += ' - '
+                self.get_teclado().display.text += ' ‒ '
             else:
                 self.get_teclado().display.text += ' + '
         else:
