@@ -1,11 +1,9 @@
 import kivy
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.uix.gridlayout import GridLayout
 from kivy.uix.screenmanager import Screen, ScreenManager
 from app.classes.parentwidget import ParentWidget
 
-# from app import keyboard, topbar, tela  # precisa
 
 kivy.require('1.11.1')
 

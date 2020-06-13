@@ -1,9 +1,7 @@
-#-*- encoding: utf-8 -*-
+# -*- encoding: utf-8 -*-
 import kivy
-from kivy.clock import Clock
 from kivy.properties import ObjectProperty
 from kivy.uix.gridlayout import GridLayout
-from kivy.uix.label import Label
 
 kivy.require('1.11.1')
 
@@ -23,6 +21,7 @@ class Tela(GridLayout):
         return self.display.text
 
     def append_text(self, txt):
+        print(self.ids)
         self.display.text += txt
 
     def remove(self, qtd=1):
@@ -33,4 +32,3 @@ class Tela(GridLayout):
 
     def change_info(self, text):
         self.info.text = text
-
