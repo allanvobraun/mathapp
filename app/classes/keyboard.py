@@ -78,6 +78,6 @@ class Keyboard(GridLayout):
         tela = self.get_tela()
         result = validate_exp(tela.get_text())
         if result[0] is None:
-            tela.change_info('batataaaaaaaaaa')
+            tela.change_info('Formula inválida')
         else:
             tela.change_info(f"Valido: {tela.get_text()}")

@@ -4,7 +4,6 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager
 from app.classes.parentwidget import ParentWidget
 
-
 kivy.require('1.11.1')
 
 
@@ -20,7 +19,7 @@ class MainLayout(Screen, ParentWidget):
 
     def on_enter(self):
         super().on_enter()
-        self.__init__()
+        self.set_children()
 
 
 class MathApp(App):
@@ -29,3 +28,4 @@ class MathApp(App):
         Builder.load_string(open('app/front/mathapp-front.kv', encoding='utf8').read(), rulesonly=True)
 
         return ScreenControler()
+

@@ -1,9 +1,7 @@
 # -*- encoding: utf-8 -*-
-import kivy
+import kivy.utils
 from kivy.properties import ObjectProperty
 from kivy.uix.gridlayout import GridLayout
-
-kivy.require('1.11.1')
 
 
 class Tela(GridLayout):
@@ -21,14 +19,13 @@ class Tela(GridLayout):
         return self.display.text
 
     def append_text(self, txt):
-        print(self.ids)
         self.display.text += txt
 
     def remove(self, qtd=1):
         self.display.text = self.display.text[:qtd * -1]
 
-    def get_cor(self):  # TODO: mudar para snake case
+    def get_cor(self):
         return kivy.utils.get_color_from_hex('#0A5B15')
 
     def change_info(self, text):
-        self.info.text = text
+        self.information.text = text

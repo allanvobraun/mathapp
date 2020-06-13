@@ -6,12 +6,9 @@ class ParentWidget(Widget):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.slaves = self.generate_dict_children(self)
-        self.set_children()  # TODO retirar wigets padroes
-
-        # adiciona ao dicionario os "netos" do widget
-
     def set_children(self):
+        self.slaves = self.generate_dict_children(self)
+
         for children in self.children:
             if hasattr(children, 'children'):  # se o filho tiver filhos
                 self.slaves.update(self.generate_dict_children(children))
@@ -20,6 +17,8 @@ class ParentWidget(Widget):
     #  { "nome da classe": objeto}
     @staticmethod
     def generate_dict_children(obj):
+        print(obj.children)
+
         return {child.__class__.__name__: child for child in obj.children}
 
     def get_child(self, name):
