@@ -25,7 +25,6 @@ class Keyboard(GridLayout):
 
     def write(self, text):
         tela = self.get_tela()
-        print(tela.display)
         tela.append_text(text)
 
     def delete(self):
