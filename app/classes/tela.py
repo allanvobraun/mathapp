@@ -15,7 +15,7 @@ class Tela(GridLayout):
     information = ObjectProperty()
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super(Tela, self).__init__(**kwargs)
         self.cols = 1
         self.sview = None
         self.result = None

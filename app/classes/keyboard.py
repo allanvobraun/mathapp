@@ -8,7 +8,7 @@ from kivy.uix.gridlayout import GridLayout
 class Keyboard(GridLayout):
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super(Keyboard, self).__init__(**kwargs)
         self.cols = 4
         self.master = App.get_running_app()  # Widget pai de todos
 
