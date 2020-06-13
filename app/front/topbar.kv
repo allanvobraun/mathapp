@@ -14,7 +14,9 @@
             ActionPrevious:
                 title: 'MathApp'
                 app_icon: ''
-                with_previous: False
+                on_release:
+                    app.root.transition.direction = 'left'
+                    app.root.current = 'menu'
             ActionOverflow:
                 overflow_image: root.get_image()
                 ActionButton:

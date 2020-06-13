@@ -19,8 +19,9 @@ class Keyboard(GridLayout):
     def get_cor():
         return kivy.utils.get_color_from_hex('#0A5B15')
 
+
     def get_tela(self):
-        return self.master.root.get_child('Tela')
+        return self.master.root.get_screen('calculadora').get_child('Tela')
 
     def write(self, text):
         tela = self.get_tela()
