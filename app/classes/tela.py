@@ -1,7 +1,7 @@
 #-*- encoding: utf-8 -*-
 import kivy
 from kivy.lang import Builder
-from kivy.properties import StringProperty, ObjectProperty
+from kivy.properties import StringProperty, ObjectProperty, Clock
 from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput
@@ -35,8 +35,5 @@ class Tela(GridLayout):
         return kivy.utils.get_color_from_hex('#0A5B15')
 
     def change_info(self, text):
-        self.info.text = ' '
-        # self.info.text = text
-        # print(self.info.text)
-
+        self.info.text = text
 

@@ -24,6 +24,7 @@ class Keyboard(GridLayout):
 
     def write(self, text):
         tela = self.get_tela()
+        tela.change_info("Função")
         print(tela.display)
         tela.append_text(text)
 
@@ -79,7 +80,8 @@ class Keyboard(GridLayout):
         tela = self.get_tela()
         result = validate_exp(tela.get_text())
         if result[0] is None:
-            tela.change_info('batataaaaaaaaaa')
+            tela.change_info("Expressão Inválida")
+
         else:
             tela.change_info(f"Valido: {tela.get_text()}")
 
