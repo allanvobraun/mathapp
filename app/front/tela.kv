@@ -6,10 +6,19 @@
     information: information
     orientation: 'vertical'
 
+    canvas:
+        Color:
+            rgba: utils.get_color_from_hex('#41704d')
+        Rectangle:
+            size:self.size
+            pos:self.pos
+
+
     Label:
+
         id: information
         size_hint: (1, 0.3)
-        text: 'Função'
+        text: 'Equação'
         font_name: 'assets/fonts/times new.ttf'
         font_size: 24
 
