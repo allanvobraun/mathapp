@@ -1,10 +1,8 @@
 # -*- encoding: utf-8 -*-
-import kivy
+import kivy.utils
 from kivy.app import App
 from app.classes.quadratic import get_variables
 from kivy.uix.gridlayout import GridLayout
-
-kivy.require('1.11.1')
 
 
 class Keyboard(GridLayout):

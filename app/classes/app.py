@@ -5,7 +5,7 @@ from kivy.uix.screenmanager import Screen, ScreenManager
 from app.classes.parentwidget import ParentWidget
 from app.classes.solution import SolutionScroll
 
-kivy.require('1.11.1')
+kivy.require('1.11.0')
 
 
 class ScreenControler(ScreenManager):
