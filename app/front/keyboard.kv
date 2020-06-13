@@ -3,19 +3,19 @@
 
     KbButton:
         text:'1'
-        color: root.getCor()
-        on_press: root.teclado(self.text)
+        color: root.get_cor()
+        on_press: root.write(self.text)
 
     KbButton:
         text:'2'
-        color: root.getCor()
-        on_press: root.teclado(self.text)
+        color: root.get_cor()
+        on_press: root.write(self.text)
         
 
     KbButton:
         text:'3'
-        color: root.getCor()
-        on_press: root.teclado(self.text)
+        color: root.get_cor()
+        on_press: root.write(self.text)
 
 
     Button:
@@ -25,30 +25,30 @@
         background_color: 255,255,255,1
         text: u'x / x\u00b2'
         on_press: root.incognita()
-        color: root.getCor()
+        color: root.get_cor()
 
 
     KbButton:
         text:'4'
-        color: root.getCor()
-        on_press: root.teclado(self.text)
+        color: root.get_cor()
+        on_press: root.write(self.text)
         
 
     KbButton:
         text:'5'
-        color: root.getCor()
-        on_press: root.teclado(self.text)
+        color: root.get_cor()
+        on_press: root.write(self.text)
         
 
     KbButton:
         text:'6'
-        color: root.getCor()
-        on_press: root.teclado(self.text)
+        color: root.get_cor()
+        on_press: root.write(self.text)
         
 
     Button:
-        on_press: root.apagar()
-        color: root.getCor()
+        on_press: root.delete()
+        color: root.get_cor()
 
         background_normal: ''
         background_color: 255,255,255,1
@@ -61,19 +61,19 @@
 
     KbButton:
         text:'7'
-        color: root.getCor()
-        on_press: root.teclado(self.text)
+        color: root.get_cor()
+        on_press: root.write(self.text)
         
 
     KbButton:
         text:'8'
-        color: root.getCor()
-        on_press: root.teclado(self.text)
+        color: root.get_cor()
+        on_press: root.write(self.text)
 
     KbButton:
         text:'9'
-        color: root.getCor()
-        on_press: root.teclado(self.text)
+        color: root.get_cor()
+        on_press: root.write(self.text)
 
 
     Button:
@@ -83,17 +83,17 @@
         background_normal: ''
         background_color: 255,255,255,1
         on_press: root.clean()
-        color: root.getCor()        
+        color: root.get_cor()
 
     KbButton:
         text:','
         on_press: root.virgula()
-        color: root.getCor()        
+        color: root.get_cor()
 
     KbButton:
         text:'0'
-        on_press: root.teclado('0')
-        color: root.getCor()        
+        on_press: root.write('0')
+        color: root.get_cor()
 
     Button:
         font_name: 'assets/fonts/times new.ttf'
@@ -101,13 +101,13 @@
         font_size: 54
         background_normal: ''
         background_color: 255,255,255,1
-        on_press: root.soma()
-        color: root.getCor()        
+        on_press: root.plus_minus()
+        color: root.get_cor()
 
     KbButton:
         text:'='
         on_press: root.validate()
-        color: root.getCor()
+        color: root.get_cor()
 
 <KbButton@Button>:
     font_name: 'assets/fonts/CENTURY.ttf'
