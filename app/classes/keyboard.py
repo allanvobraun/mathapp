@@ -19,12 +19,12 @@ class Keyboard(GridLayout):
     def get_cor():
         return kivy.utils.get_color_from_hex('#0A5B15')
 
+
     def get_tela(self):
         return self.master.root.get_screen('calculadora').get_child('Tela')
 
     def write(self, text):
         tela = self.get_tela()
-        tela.change_info("Função")
         print(tela.display)
         tela.append_text(text)
 
@@ -51,6 +51,7 @@ class Keyboard(GridLayout):
                 tela.append_text('x²')
         else:
             tela.append_text('x')
+
 
     def plus_minus(self):
         tela = self.get_tela()

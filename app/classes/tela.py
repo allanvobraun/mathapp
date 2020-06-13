@@ -1,6 +1,4 @@
-# -*- encoding: utf-8 -*-
-from time import sleep
-
+#-*- encoding: utf-8 -*-
 import kivy
 from kivy.clock import Clock
 from kivy.properties import ObjectProperty
@@ -17,8 +15,6 @@ class Tela(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.cols = 1
-        # self.information = Label(text="Teste")
-        # self.add_widget(self.information, index=0)
 
     def set_text(self, txt):
         self.display.text = txt
