@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
 import kivy
 from kivy.app import App
-from kivy.clock import Clock
+from app.classes.quadratic import validate_exp
 from kivy.uix.gridlayout import GridLayout
-import re
+from app.classes.tela import Tela
 
 kivy.require('1.11.1')
 
@@ -15,70 +15,71 @@ class Keyboard(GridLayout):
         self.cols = 4
         self.master = App.get_running_app()  # Widget pai de todos
 
-    def getCor(self):
+    @staticmethod
+    def get_cor():
         return kivy.utils.get_color_from_hex('#0A5B15')
 
-    def get_teclado(self):
+
+    def get_tela(self):
         return self.master.root.get_screen('calculadora').get_child('Tela')
 
-    def teclado(self, text):
-        self.get_teclado().display.text += text
+    def write(self, text):
+        tela = self.get_tela()
+        print(tela.display)
+        tela.append_text(text)
 
-    def apagar(self):
-        if self.get_teclado().display.text[-1] == " ":
-            self.get_teclado().display.text = self.get_teclado().display.text[:-3]
-        else:
-            self.get_teclado().display.text = self.get_teclado().display.text[:-1]
+    def delete(self):
+        tela = self.get_tela()
+        try:
+            if tela.get_text() == " ":
+                tela.remove(3)
+            else:
+                tela.remove(1)
+        except IndexError:
+            return
 
     def clean(self):
-        self.get_teclado().display.text = ""
+        self.get_tela().set_text('')
 
     def incognita(self):
-        if len(self.get_teclado().display.text) > 0:
-            if self.get_teclado().display.text[-1] != 'x':
-                self.get_teclado().display.text += 'x'
+        tela = self.get_tela()
+        if len(tela.get_text()) > 0:
+            if tela.get_text()[-1] != 'x':
+                tela.append_text('x')
             else:
-                self.get_teclado().display.text = self.get_teclado().display.text[:-1]
-                self.get_teclado().display.text += 'x²'
+                tela.remove(1)
+                tela.append_text('x²')
         else:
-            self.get_teclado().display.text += 'x'
+            tela.append_text('x')
 
-    def soma(self):
-        if len(self.get_teclado().display.text) > 0:
-            if self.get_teclado().display.text[-2] == '‒':
-                self.get_teclado().display.text = self.get_teclado().display.text[:-3]
-                self.get_teclado().display.text += ' + '
-            elif self.get_teclado().display.text[-2] == '+':
-                self.get_teclado().display.text = self.get_teclado().display.text[:-3]
-                self.get_teclado().display.text += ' ‒ '
+
+    def plus_minus(self):
+        tela = self.get_tela()
+        text = tela.get_text()
+        if len(text) > 0:
+            if text[-2] == '‒':
+                tela.remove(3)
+                tela.append_text(' + ')
+            elif text[-2] == '+':
+                tela.remove(3)
+                tela.append_text(' ‒ ')
             else:
-                self.get_teclado().display.text += ' + '
+                tela.append_text(' + ')
         else:
-            self.get_teclado().display.text += ' + '
+            tela.append_text(' + ')
 
     def virgula(self):
-        if ',' in self.get_teclado().display.text.split('+')[-1]:
-            if self.get_teclado().display.text[-1] == ',':
+        tela = self.get_tela()
+        text = tela.get_text()
+        if ',' in text.split('+')[-1]:
+            if text[-1] == ',':
                 return
         else:
-            self.get_teclado().display.text += ','
+            tela.append_text(',')
 
-    def validate(self):
-        exp_a = ''
-        exp_b = ''
-        exp_c = ''
+    def validade(self):
+        tela = self.get_tela()
+        result = validate_exp(tela.get_text())
+        if result[0] is None:
+            tela.change_info('Expressão invalida!')
 
-        exp_a = re.compile('([-]?\d+)(?=[a-zA-Z]\²)')
-
-        if exp_a == '':
-            self.get_teclado().display.text = "Inválido"
-        else:
-            a = (exp_a.match(self.get_teclado().display.text).group())
-
-        exp_b = re.compile('-?\d+(?![a-zA-Z]\^)(?=[a-zA-Z])')
-        exp_c = re.compile('-?\d+')
-
-        b = (exp_b.match(self.get_teclado().display.text).group())
-        c = (exp_c.match(self.get_teclado().display.text).group())
-
-        self.get_teclado().display.text = "Válido   a = " + a + ", b = " + b + " e c = " + c
