@@ -1,7 +1,9 @@
-<Tela@GridLayout>:
+#:import Tela app.classes.tela
+
+<Tela>:
     cols: 1
     display: display
-    info: info
+    information: information
     orientation: 'vertical'
 
     canvas:
@@ -13,7 +15,9 @@
 
 
     Label:
-        id: info
+
+        id: information
+        size_hint: (1, 0.3)
         text: 'Equação'
         font_name: 'assets/fonts/times new.ttf'
         font_size: 24

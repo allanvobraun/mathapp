@@ -1,9 +1,8 @@
 # -*- encoding: utf-8 -*-
 import kivy
 from kivy.app import App
-from app.classes.quadratic import validate_exp
+from app.classes.quadratic import get_variables
 from kivy.uix.gridlayout import GridLayout
-from app.classes.tela import Tela
 
 kivy.require('1.11.1')
 
@@ -11,14 +10,13 @@ kivy.require('1.11.1')
 class Keyboard(GridLayout):
 
     def __init__(self, **kwargs):
-        super(Keyboard, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.cols = 4
         self.master = App.get_running_app()  # Widget pai de todos
 
     @staticmethod
     def get_cor():
         return kivy.utils.get_color_from_hex('#0A5B15')
-
 
     def get_tela(self):
         return self.master.root.get_screen('calculadora').get_child('Tela')
@@ -51,7 +49,6 @@ class Keyboard(GridLayout):
         else:
             tela.append_text('x')
 
-
     def plus_minus(self):
         tela = self.get_tela()
         text = tela.get_text()
@@ -76,9 +73,14 @@ class Keyboard(GridLayout):
         else:
             tela.append_text(',')
 
-    def validade(self):
+    def validate(self):
         tela = self.get_tela()
-        result = validate_exp(tela.get_text())
+        result = get_variables(tela.get_text())
         if result[0] is None:
-            tela.change_info('Expressão invalida!')
+            tela.change_info('Formula inválida')
+        else:
+            print(tela.get_text())
+            tela.change_info(f"Valido: a={result[0]} b={result[1]} c={result[2]}")
+            tela.show_calculation(result[0], result[1], result[2])
 
+            # tela.show_calculation(result[0], result[1], result[2])
