@@ -10,7 +10,7 @@ def validate_exp(exp: str) -> list:
     match_b = exp_b.match(exp)
     match_c = exp_c.match(exp)
 
-    if None in (match_a or match_b or match_c):
+    if None in [match_a, match_b, match_c]:
         return [None]
     else:
         return [match_a.group(), match_b.group(), match_c.group()]

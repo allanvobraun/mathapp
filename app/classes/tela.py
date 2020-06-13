@@ -35,4 +35,8 @@ class Tela(GridLayout):
         return kivy.utils.get_color_from_hex('#0A5B15')
 
     def change_info(self, text):
-        self.info.text = text
+        self.info.text = ' '
+        # self.info.text = text
+        # print(self.info.text)
+
+

@@ -19,7 +19,6 @@ class Keyboard(GridLayout):
     def get_cor():
         return kivy.utils.get_color_from_hex('#0A5B15')
 
-
     def get_tela(self):
         return self.master.root.get_screen('calculadora').get_child('Tela')
 
@@ -52,7 +51,6 @@ class Keyboard(GridLayout):
         else:
             tela.append_text('x')
 
-
     def plus_minus(self):
         tela = self.get_tela()
         text = tela.get_text()
@@ -77,9 +75,11 @@ class Keyboard(GridLayout):
         else:
             tela.append_text(',')
 
-    def validade(self):
+    def validate(self):
         tela = self.get_tela()
         result = validate_exp(tela.get_text())
         if result[0] is None:
-            tela.change_info('Expressão invalida!')
+            tela.change_info('batataaaaaaaaaa')
+        else:
+            tela.change_info(f"Valido: {tela.get_text()}")
 
