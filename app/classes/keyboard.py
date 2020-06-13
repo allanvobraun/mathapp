@@ -81,3 +81,4 @@ class Keyboard(GridLayout):
         else:
             print(tela.get_text())
             tela.change_info(f"Valido: a={result[0]} b={result[1]} c={result[2]}")
+            tela.show_calculation(result[0], result[1], result[2])

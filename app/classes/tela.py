@@ -2,6 +2,7 @@
 import kivy.utils
 from kivy.properties import ObjectProperty
 from kivy.uix.gridlayout import GridLayout
+from app.classes.calculation import Calculation
 
 
 class Tela(GridLayout):
@@ -29,3 +30,7 @@ class Tela(GridLayout):
 
     def change_info(self, text):
         self.information.text = text
+
+    def show_calculation(self, a, b, c):
+        txt = self.get_tela().get_text()
+        calc = Calculation(equation=txt, a=a, b=b, c=c)

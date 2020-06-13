@@ -44,12 +44,8 @@ def get_variables(exp: str) -> list:
     return [a, b, c]
 
 
-def passos(a, b, c):
-    delta = b ** 2 - 4 * a * c
-    if delta ** (1 / 2) >= 0:
-        x1 = (-b + delta ** (1 / 2)) / (2 * a)
-        x2 = (-b - delta ** (1 / 2)) / (2 * a)
-
+def passos(a: int = None, b: int = None, c: int = None,
+           delta: int = None, x1: int = None, x2: int = None) -> str:
     formula_delta = "b² -4·a·c"
     formula_raiz = "x = -b ± √Δ / 2·a"
 
@@ -67,21 +63,22 @@ def passos(a, b, c):
     x2_p3 = f"x\" = {b * (-1) - delta ** (1 / 2)} / {2 * a}"
     x2_result = f'x\" = {x2}'
 
-    print('Passos para o cálculo do delta(Δ):\n')
-    print('Δ = ' + formula_delta + '\n' +
-          delta_p1 + '\n' +
-          delta_result + '\n')
+    delta_txt = f'Passos para o cálculo do delta(Δ):\n' \
+                f'Δ = {formula_delta}\n' \
+                f'{delta_p1}\n' \
+                f'{delta_result}\n'
 
-    print('Passos para a resolução de x:\n')
-    print(formula_raiz + '\n\n' +
-          x1_p1 + '\n' +
-          x1_p2 + '\n' +
-          x1_p3 + '\n' +
-          x1_result + '\n\n' +
-
-          x2_p1 + '\n' +
-          x2_p2 + '\n' +
-          x2_p3 + '\n' +
-          x2_result + '\n\n')
+    x_text = f'Passos para a resolução de x:\n' \
+             f'{formula_raiz}\n\n' \
+             f'{x1_p1}\n' \
+             f'{x1_p2}\n' \
+             f'{x1_p3}\n' \
+             f'{x1_result}\n\n' \
+             f'{x2_p1}\n' \
+             f'{x2_p2}\n' \
+             f'{x2_p3}\n' \
+             f'{x2_result}\n\n'
     resultq = "Solução = {x ∈ ℝ | x\' = " + str(x1) + " e " + "x\" = " + str(x2) + "}"
-    print(resultq)
+    return f"{delta_txt}\n{x_text}\n{resultq}"
+
+
