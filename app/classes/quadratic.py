@@ -1,21 +1,47 @@
-import re
+import js_regex as regex
 
 
-def validate_exp(exp: str) -> list:
-    exp_a = re.compile('([-]?[0-9]+)(?=x²)')
-    exp_b = re.compile('-?[0-9]+(?!x²)(?=x)')
-    exp_c = re.compile(r'(‒ |\+ )?[0-9]+(?!x)( |$)+')
+def get_variables(exp: str) -> list:
+    exp_a = regex.compile('([-]?[0-9]+)(?=x²)')
+    exp_b = regex.compile('-?[0-9]+(?!x²)(?=x)')
+    exp_c = regex.compile(r'(‒ |\+ )?[0-9]+(?!x)( |$)+')
 
-    match_a = exp_a.match(exp)
-    match_b = exp_b.match(exp)
-    match_c = exp_c.match(exp)
+    match_a = exp_a.search(exp)
+    match_b = exp_b.search(exp)
+    match_c = exp_c.search(exp)
 
-    lista = [match_a, match_b, match_c]
+    a = ""
+    b = ""
+    c = ""
 
-    if None in [match_a]:
-        return [None]
+    # a
+    if match_a is None:
+        if "x²" in exp:
+            a = "1"
+        else:
+            a = None
+            print("Exp invalida sem o x²")
     else:
-        return [m.group() for m in lista if m is not None]
+        a = match_a.group()
+
+    # b
+    if match_b is None:
+        if "x" in exp.replace("x²", ""):
+            b = "1"
+        else:
+            b = "0"
+            print("exp sem o b")
+    else:
+        b = match_b.group()
+
+    # c
+    if match_c is None:
+        c = "0"
+        print("exp sem o c")
+    else:
+        c = match_c.group().replace("+ ", "").replace("‒ ", "")
+
+    return [a, b, c]
 
 
 def passos(a, b, c):

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 import kivy
 from kivy.app import App
-from app.classes.quadratic import validate_exp
+from app.classes.quadratic import get_variables
 from kivy.uix.gridlayout import GridLayout
 
 kivy.require('1.11.1')
@@ -23,7 +23,6 @@ class Keyboard(GridLayout):
 
     def write(self, text):
         tela = self.get_tela()
-        print(tela.display)
         tela.append_text(text)
 
     def delete(self):
@@ -76,8 +75,9 @@ class Keyboard(GridLayout):
 
     def validate(self):
         tela = self.get_tela()
-        result = validate_exp(tela.get_text())
+        result = get_variables(tela.get_text())
         if result[0] is None:
             tela.change_info('Formula inválida')
         else:
-            tela.change_info(f"Valido: {tela.get_text()}")
+            print(tela.get_text())
+            tela.change_info(f"Valido: a={result[0]} b={result[1]} c={result[2]}")

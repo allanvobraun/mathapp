@@ -17,7 +17,6 @@ class ParentWidget(Widget):
     #  { "nome da classe": objeto}
     @staticmethod
     def generate_dict_children(obj):
-        print(obj.children)
 
         return {child.__class__.__name__: child for child in obj.children}
 
