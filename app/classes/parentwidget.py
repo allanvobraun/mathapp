@@ -21,4 +21,5 @@ class ParentWidget(Widget):
         return {child.__class__.__name__: child for child in obj.children}
 
     def get_child(self, name):
+        self.set_children()
         return self.slaves[name]

@@ -14,9 +14,9 @@ class Calculation:
         self.equation = equation
         self.x1 = x1
         self.x2 = x2
-        self.a = a
-        self.b = b
-        self.c = c
+        self.a = int(a)
+        self.b = int(b)
+        self.c = int(c)
         self.delta = None
 
     def calc_delta(self):
