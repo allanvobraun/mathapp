@@ -5,7 +5,6 @@ from kivy.properties import ObjectProperty
 from kivy.uix.screenmanager import Screen
 from kivy.core.window import Window
 
-from app.classes.quadratic import validate_exp
 from kivy.uix.gridlayout import GridLayout
 from app.classes.tela import Tela
 
