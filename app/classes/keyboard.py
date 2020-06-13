@@ -11,7 +11,7 @@ kivy.require('1.11.1')
 class Keyboard(GridLayout):
 
     def __init__(self, **kwargs):
-        super(Keyboard, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.cols = 4
         self.master = App.get_running_app()  # Widget pai de todos
 
