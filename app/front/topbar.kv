@@ -1,5 +1,6 @@
 #:import utils kivy.utils
 #:import TopBar app.classes.topbar
+#:import Historico app.classes.historico
 
 <TopBar>:
     orientation: 'horizontal'
@@ -21,5 +22,6 @@
                 overflow_image: root.get_image()
                 ActionButton:
                     text: 'Histórico'
+                    on_release: app.root.current = 'historico'
                 ActionButton:
                     text: 'Grafico'

@@ -1,0 +1,38 @@
+#:import Historico app.classes.historico
+#:import TopBar app.classes.topbar
+
+<Btn@ButtonBehavior+Label>:
+    size_hint: (1, 0.1)
+    font_name: 'CENTURY.ttf'
+    font_size: 24
+
+
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#083A0F')
+
+            Rectangle:
+                size:self.size
+                pos:self.pos
+
+<Historico>:
+
+    GridLayout:
+        orientation: 'vertical'
+        cols: 1
+
+        canvas.before:
+            Color:
+                rgba: utils.get_color_from_hex('#41704d')
+            Rectangle:
+                size:self.size
+                pos:self.pos
+
+        TopBar:
+
+        Btn:
+            text:'Limpar Histórico'
+
+        Label:
+            text: 'a'
+
