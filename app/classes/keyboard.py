@@ -1,6 +1,8 @@
 # -*- encoding: utf-8 -*-
 import kivy.utils
 from kivy.app import App
+from kivy.core.window import Window
+
 from app.classes.quadratic import get_variables
 from kivy.uix.gridlayout import GridLayout
 
@@ -81,4 +83,3 @@ class Keyboard(GridLayout):
             tela.change_info(f"Valido: a={result[0]} b={result[1]} c={result[2]}")
             tela.show_calculation(result[0], result[1], result[2])
 
-            # tela.show_calculation(result[0], result[1], result[2])
