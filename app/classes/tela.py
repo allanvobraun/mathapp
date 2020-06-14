@@ -49,6 +49,8 @@ class Tela(GridLayout):
         if xs is None:
             self.change_info("A equação não possui raízes reais")
             return
+        else:
+            calc.save()
 
         self.parent.parent.close_teclado()
         steps = quadratic.passos(a=calc.a, b=calc.b, c=calc.c, delta=delta, x1=xs[0], x2=xs[1])
