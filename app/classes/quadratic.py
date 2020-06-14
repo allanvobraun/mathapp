@@ -75,22 +75,23 @@ def get_variables(exp: str) -> list:
 
 def passos(a: int = None, b: int = None, c: int = None,
            delta: int = None, x1: int = None, x2: int = None) -> str:
-    formula_delta = "b² -4·a·c"
-    formula_raiz = "x = -b ± √Δ / 2·a"
+    formula_delta = "b² - 4 · a · c"
+    formula_raiz = "x = -b ± √Δ / 2 · a"
 
-    delta_p1 = f"Δ = {b}² -4·{a}·{c}"
-    delta_p1 = f"Δ = {b ** 2}+({-4 * a * c})"
-    delta_result = f"Δ = {delta}"
+    delta_p1 = f"Δ = {int(b)}² - 4 · {int(a)} · {int(c)}"
+    delta_p1 = f"Δ = {int(b ** 2)} + ({int(-4 * a)} · {int(c)})"
+    delta_p2 = f"Δ = {int(b ** 2)} + ({int(-4 * a * c)})"
+    delta_result = f"Δ = {int(delta)}"
 
-    x1_p1 = f"x' = -{b} + √{delta} / 2{a}"
-    x1_p2 = f"x' = {b * (-1)} + {delta ** (1 / 2)} / {2 * a}"
-    x1_p3 = f"x' = {b * (-1) + delta ** (1 / 2)} / {2 * a}"
-    x1_result = f"x' = {x1}"
+    x1_p1 = f"x' = -{int(b)} + √{int(delta)} / 2 · {int(a)}"
+    x1_p2 = f"x' = {int(b * (-1))} + {int(delta ** (1 / 2))} / {int(2 * a)}"
+    x1_p3 = f"x' = {int(b * (-1) + delta ** (1 / 2))} / {int(2 * a)}"
+    x1_result = f"x' = {int(x1)}"
 
-    x2_p1 = f"x\" = -{b} - √{delta} / 2{a}"
-    x2_p2 = f"x\" = {b * (-1)} - {delta ** (1 / 2)} / {2 * a}"
-    x2_p3 = f"x\" = {b * (-1) - delta ** (1 / 2)} / {2 * a}"
-    x2_result = f'x\" = {x2}'
+    x2_p1 = f"x\" = -{int(b)} - √{int(delta)} / 2 · {int(a)}"
+    x2_p2 = f"x\" = {int(b * (-1))} - {int(delta ** (1 / 2))} / {int(2 * a)}"
+    x2_p3 = f"x\" = {int(b * (-1) - delta ** (1 / 2))} / {int(2 * a)}"
+    x2_result = f'x\" = {int(x2)}'
 
     delta_txt = f'Passos para o cálculo do delta(Δ):\n' \
                 f'Δ = {formula_delta}\n' \
@@ -107,5 +108,5 @@ def passos(a: int = None, b: int = None, c: int = None,
              f'{x2_p2}\n' \
              f'{x2_p3}\n' \
              f'{x2_result}\n\n'
-    resultq = "Solução = {x ∈ ℝ | x\' = " + str(x1) + " e " + "x\" = " + str(x2) + "}"
+    resultq = "Solução = {x ∈ ℝ | x\' = " + str(int(x1)) + "  e  " + "x\" = " + str(int(x2)) + "}"
     return f"{delta_txt}\n{x_text}\n{resultq}"

@@ -28,7 +28,7 @@ class Keyboard(GridLayout):
     def delete(self):
         tela = self.get_tela()
         try:
-            if tela.get_text() == " ":
+            if tela.get_text()[-1] == " ":
                 tela.remove(3)
             else:
                 tela.remove(1)
@@ -53,25 +53,20 @@ class Keyboard(GridLayout):
         tela = self.get_tela()
         text = tela.get_text()
         if len(text) > 0:
-            if text[-2] == '‒':
-                tela.remove(3)
-                tela.append_text(' + ')
-            elif text[-2] == '+':
-                tela.remove(3)
-                tela.append_text(' ‒ ')
+            if len(text) > 2:
+                if text[-2] == '‒':
+                    tela.remove(3)
+                    tela.append_text(' + ')
+                elif text[-2] == '+':
+                    tela.remove(3)
+                    tela.append_text(' ‒ ')
+                else:
+                    tela.append_text(' + ')
             else:
                 tela.append_text(' + ')
         else:
             tela.append_text(' + ')
 
-    def virgula(self):
-        tela = self.get_tela()
-        text = tela.get_text()
-        if ',' in text.split('+')[-1]:
-            if text[-1] == ',':
-                return
-        else:
-            tela.append_text(',')
 
     def validate(self):
         tela = self.get_tela()

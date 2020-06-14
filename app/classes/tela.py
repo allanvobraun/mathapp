@@ -29,7 +29,7 @@ class Tela(GridLayout):
         self.display.text += txt
 
     def remove(self, qtd=1):
-        self.display.text = self.display.text[:qtd * -1]
+        self.display.text = self.display.text[:(qtd * -1)]
 
     def get_cor(self):
         return kivy.utils.get_color_from_hex('#0A5B15')
