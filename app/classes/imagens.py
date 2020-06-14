@@ -1,14 +1,8 @@
 # -*- encoding: utf-8 -*-
-import kivy
 from kivy.app import App
 from kivy.properties import ObjectProperty
 from kivy.uix.screenmanager import Screen
 from kivy.core.window import Window
-
-from kivy.uix.gridlayout import GridLayout
-from app.classes.tela import Tela
-
-kivy.require('1.11.1')
 
 
 class Imagens(Screen):

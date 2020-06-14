@@ -1,11 +1,8 @@
 # -*- encoding: utf-8 -*-
 import kivy.utils
 from kivy.app import App
-from kivy.core.window import Window
 from kivy.properties import ObjectProperty
 from kivy.uix.gridlayout import GridLayout
-from kivy.uix.scrollview import ScrollView
-from kivy.uix.label import Label
 from app.classes.calculation import Calculation
 import app.classes.quadratic as quadratic
 
