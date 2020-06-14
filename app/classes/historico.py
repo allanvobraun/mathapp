@@ -9,9 +9,6 @@ class Historico(Screen):
     def __init__(self, **kwargs):
         super(Historico, self).__init__(**kwargs)
 
-    def on_enter(self, *args):
-        pass
-
     def on_pre_enter(self):
         Window.bind(on_keyboard=self.voltar)
 

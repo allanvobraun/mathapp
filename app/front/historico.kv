@@ -1,11 +1,51 @@
 #:import Historico app.classes.historico
 #:import TopBar app.classes.topbar
+#:import HistoryList app.classes.historylist
+
+<Historico>:
+    BoxLayout:
+        orientation: 'vertical'
+        TopBar:
+        Btn:
+            text: 'Limpar Histórico'
+        HistoryList:
+
+
+<HistoryList>:
+
+    viewclass: 'Item'
+    RecycleBoxLayout:
+        spacing: 15
+        padding: 100
+        default_size: None, dp(56)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'
+
+
+<Item@RecycleDataViewBehavior+Label>:
+    font_name: 'assets/fonts/times italic.ttf'
+    font_size: 24
+
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#083A0F')
+        Ellipse:
+            pos:self.pos
+            size:self.height,self.height
+        Ellipse:
+            pos:self.x+self.width-self.height,self.y
+            size:self.height,self.height
+        Rectangle:
+            pos:self.x+self.height/2.0,self.y
+            size:self.width-self.height,self.height
+
 
 <Btn@ButtonBehavior+Label>:
     size_hint: (1, 0.1)
     font_name: 'assets/fonts/CENTURY.ttf'
     font_size: 24
-
 
     canvas.before:
         Color:
@@ -14,25 +54,3 @@
             Rectangle:
                 size:self.size
                 pos:self.pos
-
-<Historico>:
-
-    GridLayout:
-        orientation: 'vertical'
-        cols: 1
-
-        canvas.before:
-            Color:
-                rgba: utils.get_color_from_hex('#41704d')
-            Rectangle:
-                size:self.size
-                pos:self.pos
-
-        TopBar:
-
-        Btn:
-            text:'Limpar Histórico'
-
-        Label:
-            text: 'a'
-

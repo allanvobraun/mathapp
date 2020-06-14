@@ -14,9 +14,9 @@ class Calculation:
         self.equation = equation
         self.x1 = x1
         self.x2 = x2
-        self.a = int(a)
-        self.b = int(b)
-        self.c = int(c)
+        self.a = a
+        self.b = b
+        self.c = c
         self.delta = None
 
     def calc_delta(self):
@@ -44,6 +44,18 @@ class Calculation:
             self.x2 = calc[3]
 
         del db
+
+    @staticmethod
+    def get_all() -> list:  # retorna lsita com varios objetos calcucation
+        db = DBCalculator()
+        all_calcs = db.get_all()
+
+        result = []
+
+        for line in all_calcs:
+            calc = Calculation(equation=line[1], x1=line[2], x2=line[3])
+            result.append(calc)
+        return result
 
     # salva objeto atual no database
     def save(self):
