@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 import kivy.utils
 from kivy.app import App
-from app.classes.quadratic import get_variables
+from app.classes.quadratic import get_variables, grafico
 from kivy.uix.gridlayout import GridLayout
 
 
@@ -75,10 +75,8 @@ class Keyboard(GridLayout):
         tela = self.get_tela()
         result = get_variables(tela.get_text())
         if result[0] is None:
-            tela.change_info('Formula inválida')
+            tela.change_info('Expressão Inválida')
         else:
-            print(tela.get_text())
-            tela.change_info(f"Valido: a={result[0]} b={result[1]} c={result[2]}")
+            tela.change_info(f"Equação: {result[0]}x² + {result[1]}x + {result[2]} = 0 \nCoeficientes: a = {result[0]}, b = {result[1]}  e  c = {result[2]}")
             tela.show_calculation(result[0], result[1], result[2])
-
-            # tela.show_calculation(result[0], result[1], result[2])
+            grafico(result[0], result[1], result[2])

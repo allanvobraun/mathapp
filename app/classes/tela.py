@@ -48,7 +48,7 @@ class Tela(GridLayout):
         xs = calc.calc_xs()
 
         if xs is None:
-            self.change_info("A equação não possui solução real")
+            self.change_info("A equação não possui raízes reais")
             return
 
         self.parent.parent.close_teclado()

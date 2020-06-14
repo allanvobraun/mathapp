@@ -1,13 +1,7 @@
-
-#:import Historico app.classes.historico
+#:import Grafico app.classes.grafico
 #:import TopBar app.classes.topbar
 
-<Btn@ButtonBehavior+Label>:
-    size_hint: (1, 0.1)
-    font_name: 'assets/fonts/CENTURY.ttf'
-    font_size: 24
-
-<Historico>:
+<Grafico>:
 
     GridLayout:
         orientation: 'vertical'
@@ -22,9 +16,5 @@
 
         TopBar:
 
-        Btn:
-            text:'Limpar Histórico'
-
-        Label:
-            text: 'a'
-
+        Image:
+            source: 'assets/graficos/grafico.png'

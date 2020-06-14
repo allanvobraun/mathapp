@@ -5,6 +5,7 @@
     display: display
     information: information
     orientation: 'vertical'
+    spacing: 15
 
     canvas:
         Color:
@@ -15,15 +16,16 @@
 
 
     Label:
-
+        size_hint: (1,0.1)
         id: information
         size_hint: (1, 0.3)
         text: 'Equação'
-        font_name: 'assets/fonts/times new.ttf'
+        font_name: 'assets/fonts/times italic.ttf'
         font_size: 24
 
 
     Label:
+        size_hint: 1,0.2
         id: display
         text: ''
         font_name: 'assets/fonts/times new.ttf'
