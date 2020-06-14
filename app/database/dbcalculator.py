@@ -59,6 +59,18 @@ class DBCalculator:
             print("Banco vazio")
             return None
 
+    def clean_all(self):
+        cursor = self.db.cursor()
+        query = """DELETE FROM main.calculations """
+        try:
+            cursor.execute(query)
+            self.db.commit()
+            print("Operação efetuada com sucesso")
+        except sqlite3.Error as erro:
+            msg = "Database error: {}".format(erro)
+            print(msg)
+            self.db.rollback()
+
     def __del__(self):
         # quando desintacia, encerra a conexao automaticamente
         if self.db is not None:

@@ -82,5 +82,4 @@ class Keyboard(GridLayout):
             tela.change_info(f"Equação: {result[0]}x² + {result[1]}x + {result[2]} = 0 \n"
                              f"Coeficientes: a = {result[0]}, b = {result[1]}  e  c = {result[2]}")
             tela.show_calculation(result[0], result[1], result[2])
-
             grafico(result[0], result[1], result[2])
