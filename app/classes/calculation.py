@@ -6,9 +6,9 @@ class Calculation:
     def __init__(self, equation: str = None,
                  x1: str = None,
                  x2: str = None,
-                 a: int = None,
-                 b: int = None,
-                 c: int = None):
+                 a: float = None,
+                 b: float = None,
+                 c: float = None):
 
         self.__uid = None
         self.equation = equation
