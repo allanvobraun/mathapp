@@ -22,7 +22,6 @@ def grafico(a, b, c):
 
     path = './assets/graficos/grafico.png'
     if os.path.isfile(path):
-        print("SIM")
         os.remove(path)
 
     plt.savefig('assets/graficos/grafico.png')
