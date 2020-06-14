@@ -2,7 +2,7 @@ import js_regex as regex
 import matplotlib.pyplot as plt
 import numpy as np
 import os
-from random import randint
+
 
 
 def grafico(a, b, c):

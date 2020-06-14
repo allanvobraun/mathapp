@@ -5,16 +5,14 @@ class DBCalculator:
 
     def __init__(self):
         try:
-            self.db = sqlite3.connect('file:app/database/calculation.db')
+            self.db = sqlite3.connect('app/database/calculation.db')
         except sqlite3.Error as erro:
             msg = "Database error: {}".format(erro)
             self.db = None
-            print(msg)
             del self
 
         except Exception as erro:
             msg = "Exception in : {}".format(erro)
-            print(msg)
 
     def insert_calculation(self, equation, x1, x2):
         cursor = self.db.cursor()
