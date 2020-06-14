@@ -94,7 +94,7 @@ class Keyboard(GridLayout):
         tela = self.get_tela()
 
         if 'x²' in tela.get_text() and 'x' in tela.get_text().replace('x²',''):
-            if '+' not in tela.get_text() or '‒' not in tela.get_text():
+            if '+' not in tela.get_text() and '‒' not in tela.get_text():
                 return False
 
             else:
