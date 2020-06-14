@@ -1,34 +1,35 @@
-import random
-
 import js_regex as regex
-import kivy
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+from random import randint
+
 
 def grafico(a, b, c):
     a = float(a)
     b = float(b)
     c = float(c)
 
-    eq = f'{a}x² + {b}x + {c}'
-    delta = (b**2-4*a*c)
-    xv = (-b/(2*a))
-    yv = -delta/(4*a)
+    delta = (b ** 2 - 4 * a * c)
+    xv = (-b / (2 * a))
+    yv = -delta / (4 * a)
 
     X = np.arange(-100, 100)
-    f = lambda x: a*x**2 + b*x + c
+    f = lambda x: a * x ** 2 + b * x + c
     Y = [f(x) for x in X]
 
     plt.scatter(xv, yv)
     plt.plot(X, Y)
 
-    if 'grafico.png' in os.listdir('./assets/graficos/'):
-        os.remove('assets/graficos/grafico.png')
+    path = './assets/graficos/grafico.png'
+    if os.path.isfile(path):
+        print("SIM")
+        os.remove(path)
 
-    plt.savefig(f'assets/graficos/grafico.png')
+    plt.savefig('assets/graficos/grafico.png')
 
-    return
+    plt.clf()
+
 
 def get_variables(exp: str) -> list:
     exp_a = regex.compile('([-]?[0-9]+)(?=x²)')
@@ -108,5 +109,3 @@ def passos(a: int = None, b: int = None, c: int = None,
              f'{x2_result}\n\n'
     resultq = "Solução = {x ∈ ℝ | x\' = " + str(x1) + " e " + "x\" = " + str(x2) + "}"
     return f"{delta_txt}\n{x_text}\n{resultq}"
-
-
