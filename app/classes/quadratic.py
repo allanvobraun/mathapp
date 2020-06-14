@@ -4,7 +4,6 @@ import numpy as np
 import os
 
 
-
 def grafico(a, b, c):
     a = float(a)
     b = float(b)
@@ -31,6 +30,18 @@ def grafico(a, b, c):
     plt.clf()
 
 
+def is_nagative(exp: str, coeficiente: str):
+    try:
+        idx = exp.index(coeficiente)
+        if exp[idx - 2] == '‒':
+            return True
+        else:
+            return False
+    except IndexError:
+        print("erro")
+        return False
+
+
 def get_variables(exp: str) -> list:
     exp_a = regex.compile('([-]?[0-9]+)(?=x²)')
     exp_b = regex.compile('-?[0-9]+(?!x²)(?=x)')
@@ -55,6 +66,8 @@ def get_variables(exp: str) -> list:
         a = match_a.group()
         if a == "0":
             a = None
+        elif is_nagative(exp, a):
+            a = f'-{a}'
 
     # b
     if match_b is None:
@@ -64,6 +77,8 @@ def get_variables(exp: str) -> list:
             b = "0"
     else:
         b = match_b.group()
+        if is_nagative(exp, b):
+            b = f'-{b}'
 
     # c
     if match_c is None:
@@ -71,6 +86,8 @@ def get_variables(exp: str) -> list:
 
     else:
         c = match_c.group().replace("+ ", "").replace("‒ ", "")
+        if is_nagative(exp, c):
+            c = f'-{c}'
 
     return [a, b, c]
 
@@ -79,19 +96,19 @@ def passos(a: int = None, b: int = None, c: int = None,
            delta: int = None, x1: int = None, x2: int = None) -> str:
     formula_delta = "b² -4·a·c"
     formula_raiz = "x = -b ± √Δ / 2·a"
+    delta_root = round(delta ** 0.5, 2)
 
-    delta_p1 = f"Δ = {b}² -4·{a}·{c}"
     delta_p1 = f"Δ = {b ** 2}+({-4 * a * c})"
     delta_result = f"Δ = {delta}"
 
     x1_p1 = f"x' = -{b} + √{delta} / 2{a}"
-    x1_p2 = f"x' = {b * (-1)} + {delta ** (1 / 2)} / {2 * a}"
-    x1_p3 = f"x' = {b * (-1) + delta ** (1 / 2)} / {2 * a}"
+    x1_p2 = f"x' = {b * (-1)} + {delta_root} / {2 * a}"
+    x1_p3 = f"x' = {b * (-1) + delta_root} / {2 * a}"
     x1_result = f"x' = {x1}"
 
     x2_p1 = f"x\" = -{b} - √{delta} / 2{a}"
-    x2_p2 = f"x\" = {b * (-1)} - {delta ** (1 / 2)} / {2 * a}"
-    x2_p3 = f"x\" = {b * (-1) - delta ** (1 / 2)} / {2 * a}"
+    x2_p2 = f"x\" = {b * (-1)} - {delta_root} / {2 * a}"
+    x2_p3 = f"x\" = {b * (-1) - delta_root} / {2 * a}"
     x2_result = f'x\" = {x2}'
 
     delta_txt = f'Passos para o cálculo do delta(Δ):\n' \
@@ -109,5 +126,6 @@ def passos(a: int = None, b: int = None, c: int = None,
              f'{x2_p2}\n' \
              f'{x2_p3}\n' \
              f'{x2_result}\n\n'
+
     resultq = "Solução = {x ∈ ℝ | x\' = " + str(x1) + " e " + "x\" = " + str(x2) + "}"
     return f"{delta_txt}\n{x_text}\n{resultq}"

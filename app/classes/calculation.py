@@ -21,12 +21,12 @@ class Calculation:
 
     def calc_delta(self):
         self.delta = self.b ** 2 - 4 * self.a * self.c
-        return self.delta
+        return round(self.delta, 2)
 
     def calc_xs(self):
         if self.delta >= 0:
-            self.x1 = ((self.b * -1) + self.delta ** (1 / 2)) / (2 * self.a)
-            self.x2 = ((self.b * -1) - self.delta ** (1 / 2)) / (2 * self.a)
+            self.x1 = round(((self.b * -1) + self.delta ** (1 / 2)) / (2 * self.a), 2)
+            self.x2 = round(((self.b * -1) - self.delta ** (1 / 2)) / (2 * self.a), 2)
             return self.x1, self.x2
         else:
             return None
