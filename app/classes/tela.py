@@ -19,7 +19,6 @@ class Tela(GridLayout):
         self.solution_scroll = None
         self.master = App.get_running_app()  # Widget pai de todos
 
-
     def set_text(self, txt):
         self.display.text = txt
 
@@ -43,7 +42,7 @@ class Tela(GridLayout):
 
     def show_calculation(self, a, b, c):
         txt = self.get_text()
-        calc = Calculation(equation=txt, a=a, b=b, c=c)
+        calc = Calculation(equation=txt, a=float(a), b=float(b), c=float(c))
         delta = calc.calc_delta()
         xs = calc.calc_xs()
 

@@ -2,6 +2,8 @@
 import kivy.utils
 from kivy.app import App
 from app.classes.quadratic import get_variables, grafico
+from kivy.core.window import Window
+
 from kivy.uix.gridlayout import GridLayout
 
 
@@ -79,4 +81,5 @@ class Keyboard(GridLayout):
         else:
             tela.change_info(f"Equação: {result[0]}x² + {result[1]}x + {result[2]} = 0 \nCoeficientes: a = {result[0]}, b = {result[1]}  e  c = {result[2]}")
             tela.show_calculation(result[0], result[1], result[2])
+
             grafico(result[0], result[1], result[2])
