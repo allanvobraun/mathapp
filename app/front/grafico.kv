@@ -1,0 +1,20 @@
+#:import Grafico app.classes.grafico
+#:import TopBar app.classes.topbar
+
+<Grafico>:
+
+    GridLayout:
+        orientation: 'vertical'
+        cols: 1
+
+        canvas.before:
+            Color:
+                rgba: utils.get_color_from_hex('#41704d')
+            Rectangle:
+                size:self.size
+                pos:self.pos
+
+        TopBar:
+
+        Image:
+            source: 'assets/graficos/grafico.png'

@@ -12,7 +12,7 @@ class Tela(GridLayout):
     information = ObjectProperty()
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super(Tela, self).__init__(**kwargs)
         self.cols = 1
         self.sview = None
         self.result = None
@@ -47,7 +47,7 @@ class Tela(GridLayout):
         xs = calc.calc_xs()
 
         if xs is None:
-            self.change_info("A equação não possui solução real")
+            self.change_info("A equação não possui raízes reais")
             return
 
         self.parent.parent.close_teclado()

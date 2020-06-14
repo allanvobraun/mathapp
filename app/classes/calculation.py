@@ -24,12 +24,11 @@ class Calculation:
         return self.delta
 
     def calc_xs(self):
-        if self.delta > 0:
+        if self.delta >= 0:
             self.x1 = ((self.b * -1) + self.delta ** (1 / 2)) / (2 * self.a)
             self.x2 = ((self.b * -1) - self.delta ** (1 / 2)) / (2 * self.a)
             return self.x1, self.x2
         else:
-            print("Delta menor q 0")
             return None
 
     # select calculation from database

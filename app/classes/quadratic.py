@@ -1,5 +1,34 @@
-import js_regex as regex
+import random
 
+import js_regex as regex
+import kivy
+import matplotlib.pyplot as plt
+import numpy as np
+import os
+
+def grafico(a, b, c):
+    a = float(a)
+    b = float(b)
+    c = float(c)
+
+    eq = f'{a}x² + {b}x + {c}'
+    delta = (b**2-4*a*c)
+    xv = (-b/(2*a))
+    yv = -delta/(4*a)
+
+    X = np.arange(-100, 100)
+    f = lambda x: a*x**2 + b*x + c
+    Y = [f(x) for x in X]
+
+    plt.scatter(xv, yv)
+    plt.plot(X, Y)
+
+    if 'grafico.png' in os.listdir('./assets/graficos/'):
+        os.remove('assets/graficos/grafico.png')
+
+    plt.savefig(f'assets/graficos/grafico.png')
+
+    return
 
 def get_variables(exp: str) -> list:
     exp_a = regex.compile('([-]?[0-9]+)(?=x²)')
@@ -20,7 +49,7 @@ def get_variables(exp: str) -> list:
             a = "1"
         else:
             a = None
-            print("Exp invalida sem o x²")
+            print("Coeficiente a não pode ser nulo")
     else:
         a = match_a.group()
 
@@ -30,14 +59,13 @@ def get_variables(exp: str) -> list:
             b = "1"
         else:
             b = "0"
-            print("exp sem o b")
     else:
         b = match_b.group()
 
     # c
     if match_c is None:
         c = "0"
-        print("exp sem o c")
+
     else:
         c = match_c.group().replace("+ ", "").replace("‒ ", "")
 
