@@ -23,7 +23,14 @@ class Keyboard(GridLayout):
 
     def write(self, text):
         tela = self.get_tela()
-        tela.append_text(text)
+        if self.lenght() == True:
+            tela = self.get_tela()
+            tela.append_text(text)
+        else:
+            txt = tela.get_text()
+            txt = txt[-1]
+            txt += ''
+
 
     def delete(self):
         tela = self.get_tela()
@@ -40,14 +47,30 @@ class Keyboard(GridLayout):
 
     def incognita(self):
         tela = self.get_tela()
-        if len(tela.get_text()) > 0:
-            if tela.get_text()[-1] != 'x':
-                tela.append_text('x')
+
+        if self.lenght() == True:
+            if len(tela.get_text()) > 0:
+                if tela.get_text()[-1] != 'x':
+                    tela.append_text('x')
+                else:
+                    tela.remove(1)
+                    tela.append_text('x²')
             else:
-                tela.remove(1)
-                tela.append_text('x²')
+                tela.append_text('x')
         else:
-            tela.append_text('x')
+            txt = tela.get_text()
+            txt = txt[-1]
+            txt += ''
+
+
+    def lenght(self):
+        tela = self.get_tela()
+        if len(tela.get_text()) > 13:
+            txt = tela.get_text()
+            txt = txt[:-1]
+            return False
+        else:
+            return True
 
     def plus_minus(self):
         tela = self.get_tela()
@@ -67,12 +90,49 @@ class Keyboard(GridLayout):
         else:
             tela.append_text(' + ')
 
+    def validate_plus_minus(self):
+        tela = self.get_tela()
+
+        if 'x²' in tela.get_text() and 'x' in tela.get_text().replace('x²',''):
+            if '+' not in tela.get_text() or '‒' not in tela.get_text():
+                return False
+
+            else:
+                return True
+
+        else:
+            index = tela.get_text().find('x²')
+            try:
+                if tela.get_text()[index+2] != '':
+                    return False
+                else:
+                    return True
+
+            except IndexError:
+                return True
+
 
     def validate(self):
         tela = self.get_tela()
+
+        if 'x²' in tela.get_text().replace('x²', '', 1):
+            tela.change_info('Expressão Inválida')
+            return
+
+        if 'x' in tela.get_text().replace('x²','').replace('x', '', 1):
+            tela.change_info('Expressão Inválida')
+            return
+
+        if self.validate_plus_minus() == False:
+            tela.change_info('Expressão Inválida')
+            return
+
         result = get_variables(tela.get_text())
+
         if result[0] is None:
             tela.change_info('Expressão Inválida')
+            return
+
         else:
             tela.change_info(f"Equação: {result[0]}x² + {result[1]}x + {result[2]} = 0 \n"
                              f"Coeficientes: a = {result[0]}, b = {result[1]}  e  c = {result[2]}")

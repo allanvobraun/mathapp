@@ -85,28 +85,37 @@ def get_variables(exp: str) -> list:
         c = "0"
 
     else:
-        c = match_c.group().replace("+ ", "").replace("‒ ", "")
-        if is_nagative(exp, c):
-            c = f'-{c}'
+        exp_c = match_c.group()
+        if '‒' in exp_c:
+            c = f'-{exp_c.replace("‒ ", "")}'
+
+        elif '+' in exp_c:
+            c = f'{exp_c.replace("+ ", "")}'
+
+        else:
+            c = exp_c
 
     return [a, b, c]
 
 
 def passos(a: int = None, b: int = None, c: int = None,
            delta: int = None, x1: int = None, x2: int = None) -> str:
+    a = int(a)
+    b = int(b)
+    c = int(c)
     formula_delta = "b² - 4 · a · c"
     formula_raiz = "x = -b ± √Δ / 2 · a"
     delta_root = round(delta ** 0.5, 2)
 
-    delta_p1 = f"Δ = {b ** 2}+({-4 * a * c})"
+    delta_p1 = f"Δ = {b ** 2} + ({-4 * a * c})"
     delta_result = f"Δ = {delta}"
 
-    x1_p1 = f"x' = -{b} + √{delta} / 2{a}"
+    x1_p1 = f"x' = - ({b}) + √{delta} / 2{a}"
     x1_p2 = f"x' = {b * (-1)} + {delta_root} / {2 * a}"
-    x1_p3 = f"x' = {b * (-1) + delta_root} / {2 * a}"
+    x1_p3 = f"x' = {b * (-1) + delta_root} / {int(2 * a)}"
     x1_result = f"x' = {x1}"
 
-    x2_p1 = f"x\" = -{b} - √{delta} / 2{a}"
+    x2_p1 = f"x\" = - ({b}) - √{delta} / 2{a}"
     x2_p2 = f"x\" = {b * (-1)} - {delta_root} / {2 * a}"
     x2_p3 = f"x\" = {b * (-1) - delta_root} / {2 * a}"
     x2_result = f'x\" = {x2}'
@@ -127,5 +136,5 @@ def passos(a: int = None, b: int = None, c: int = None,
              f'{x2_p3}\n' \
              f'{x2_result}\n\n'
 
-    resultq = "Solução = {x ∈ ℝ | x\' = " + str(x1) + " e " + "x\" = " + str(x2) + "}"
+    resultq = "Solução = {x ∈ ℝ | x\' = " + str(x1) + "  e  " + "x\" = " + str(x2) + "}"
     return f"{delta_txt}\n{x_text}\n{resultq}"
