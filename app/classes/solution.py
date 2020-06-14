@@ -2,8 +2,6 @@
 from kivy.properties import ObjectProperty
 from kivy.uix.gridlayout import GridLayout
 
-from app.classes.calculation import Calculation
-
 
 class SolutionScroll(GridLayout):
     steps = ObjectProperty()
