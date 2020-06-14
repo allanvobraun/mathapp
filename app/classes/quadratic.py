@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 
+from kivy.app import App
+
 
 def grafico(a, b, c):
     a = float(a)
@@ -20,12 +22,11 @@ def grafico(a, b, c):
     plt.scatter(xv, yv)
     plt.plot(X, Y)
 
-    path = './assets/graficos/grafico.png'
+    path = f'{App.get_running_app().user_data_dir}/grafico.png'
     if os.path.isfile(path):
-        print("SIM")
         os.remove(path)
 
-    plt.savefig('assets/graficos/grafico.png')
+    plt.savefig(path)
 
     plt.clf()
 

@@ -31,7 +31,6 @@ class Keyboard(GridLayout):
             txt = txt[-1]
             txt += ''
 
-
     def delete(self):
         tela = self.get_tela()
         try:
@@ -61,7 +60,6 @@ class Keyboard(GridLayout):
             txt = tela.get_text()
             txt = txt[-1]
             txt += ''
-
 
     def lenght(self):
         tela = self.get_tela()
@@ -93,7 +91,7 @@ class Keyboard(GridLayout):
     def validate_plus_minus(self):
         tela = self.get_tela()
 
-        if 'x²' in tela.get_text() and 'x' in tela.get_text().replace('x²',''):
+        if 'x²' in tela.get_text() and 'x' in tela.get_text().replace('x²', ''):
             if '+' not in tela.get_text() or '‒' not in tela.get_text():
                 return False
 
@@ -103,14 +101,13 @@ class Keyboard(GridLayout):
         else:
             index = tela.get_text().find('x²')
             try:
-                if tela.get_text()[index+2] != '':
+                if tela.get_text()[index + 2] != '':
                     return False
                 else:
                     return True
 
             except IndexError:
                 return True
-
 
     def validate(self):
         tela = self.get_tela()
@@ -119,7 +116,7 @@ class Keyboard(GridLayout):
             tela.change_info('Expressão Inválida')
             return
 
-        if 'x' in tela.get_text().replace('x²','').replace('x', '', 1):
+        if 'x' in tela.get_text().replace('x²', '').replace('x', '', 1):
             tela.change_info('Expressão Inválida')
             return
 

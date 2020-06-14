@@ -1,5 +1,7 @@
 #:import Grafico app.classes.grafico
 #:import TopBar app.classes.topbar
+#:import App kivy.app
+
 <Grafico>:
     grafico: grafico
 
@@ -18,4 +20,4 @@
 
         Image:
             id: grafico
-            source: "assets/graficos/grafico.png"
+            source: f'{app.user_data_dir}/grafico.png'
