@@ -53,6 +53,8 @@ def get_variables(exp: str) -> list:
             print("Coeficiente a não pode ser nulo")
     else:
         a = match_a.group()
+        if a == "0":
+            a = None
 
     # b
     if match_b is None:
